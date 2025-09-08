@@ -96,11 +96,11 @@ The RSASHA1 [RFC4034] and RSASHA1-NSEC3-SHA1 [RFC5155] algorithms MUST NOT be
 used when creating DNSKEY and RRSIG records.  Validating resolver implementations
 ([RFC9499] section 10) MUST continue to support validation using these
 algorithms as they are diminishing in use but still actively in use for some
-domains as of this publication.  Because of RSASHA1 and RSASHA1-NSEC3-SHA1's
-non-zero use, deployed validating resolvers MAY be configured to continue
-to validate RRSIG records that use these algorithms.  Validating
-resolvers deployed in more security strict environments MAY treat
-these RRSIG records as an unsupported algorithm.
+domains as of this publication. Operators of validating resolvers MUST treat
+DNSSEC signing algorithms RSASHA1 and RSASHA1-NSEC3-SHA1 as
+unsupported, rendering responses insecure if they cannot be validated
+by other supported signing algorithms.
+
 
 # Security Considerations
 
